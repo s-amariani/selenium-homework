@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -12,7 +13,7 @@ import org.testng.annotations.Test;
 public class WebElementsTest {
 
     @Test
-    public void add_and_remove_elements() throws MalformedURLException {
+    public void AddAndRemoveElements() throws MalformedURLException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
@@ -32,6 +33,15 @@ public class WebElementsTest {
         //Printing the last 'Delete' button element with findElements().Using cssSelector as locator of element with class name , that starts with 'added' word
         List<WebElement> btnDeleteLast_2 = driver.findElements(By.cssSelector("[class^='added']:last-child"));
         System.out.println(btnDeleteLast_2);
+        // get text from findElements()
+        List<String> a = new ArrayList<>();
+
+        for (int i = 0; i < btnDeleteLast_2.size(); i++) {
+            a.add(btnDeleteLast_2.get(i).getText());
+            System.out.println("List: "+btnDeleteLast_2.get(i).getText());
+        }
+
+    ////////////////////////
 
         //Printing the last 'Delete' button element with findElement().Using relative XPath with tag, that can accept any char with class name that contains 'manually' and text() 'Delete'
         WebElement btnDeleteLast_3 = driver.findElement(By.xpath("//button[last()][contains(@class,'manually') and contains(text(),'Delete')]"));
@@ -41,7 +51,7 @@ public class WebElementsTest {
     }
 
     @Test
-    public void challenging_dom() throws MalformedURLException{
+    public void ChallengingDom() throws MalformedURLException{
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
