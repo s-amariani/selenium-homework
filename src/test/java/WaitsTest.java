@@ -1,20 +1,13 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.net.MalformedURLException;
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.TestRunner;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+
 
 public class WaitsTest {
 
@@ -22,7 +15,6 @@ public class WaitsTest {
     public void ProgressBar() throws MalformedURLException, Throwable, InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
-
         String mainPageUrl = "https://demoqa.com/progress-bar";
         driver.navigate().to(mainPageUrl);
 
@@ -43,7 +35,6 @@ public class WaitsTest {
 
         //thread sleep for not closing browser immediately
         Thread.sleep(2500);
-
         driver.quit();
     }
 }
