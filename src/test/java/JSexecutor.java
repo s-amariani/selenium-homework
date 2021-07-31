@@ -55,7 +55,7 @@ public class JSexecutor {
         js.executeScript("window.scrollBy(0,800)");
 
         //Validate text with JS executor
-        String textOfEntriesbtn = js.executeScript("return document.documentElement.innerText;").toString();
+        String textOfEntriesbtn = (String) js.executeScript("return arguments[0].innerHTML",entries);
         System.out.println(textOfEntriesbtn);
     }
 }
