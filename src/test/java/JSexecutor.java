@@ -1,3 +1,4 @@
+import com.gargoylesoftware.htmlunit.BrowserVersion;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import net.sourceforge.htmlunit.corejs.javascript.Script;
 import org.openqa.selenium.By;
@@ -5,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
@@ -13,9 +15,9 @@ import java.util.TreeMap;
 public class JSexecutor {
     @Test
     public void FileUpload() throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-
+        //WebDriverManager.chromedriver().setup();
+        //WebDriver driver = new ChromeDriver();
+        WebDriver driver = new HtmlUnitDriver(BrowserVersion.CHROME,true); //Run  test in headless mode
         String mainPageUrl = "http://webdriveruniversity.com/To-Do-List/index.html";
         driver.navigate().to(mainPageUrl);
 
@@ -38,9 +40,9 @@ public class JSexecutor {
 
     @Test
     public void Scroll() throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-
+       // WebDriverManager.chromedriver().setup();
+       // WebDriver driver = new ChromeDriver();
+        WebDriver driver = new HtmlUnitDriver(BrowserVersion.CHROME,true); //Run  test in headless mode
         driver.manage().window().maximize();
         String mainPageUrl = "http://webdriveruniversity.com/Scrolling/index.html ";
         driver.navigate().to(mainPageUrl);
